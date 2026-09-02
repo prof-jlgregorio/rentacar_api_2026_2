@@ -1,0 +1,16 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /rentacar/api
+spring:
+  application:
+    name: rentacar
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rentacar
+    username: postgres
+    password: postdba
+  jpa:
+    hibernate:
+      ddl-auto: update
+      format-sql: true
+    show-sql: true
