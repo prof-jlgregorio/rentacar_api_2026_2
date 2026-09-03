@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Setter
 @Getter
-public class Vehicle {
+public class VehicleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,11 @@ public class Vehicle {
     @Column(nullable = false)
     private String color;
 
+    @Column(length = 255)
+    private String comments;
+
     @ManyToOne
     @JoinColumn(name = "manufacturer_id", nullable = false)
-    private Manufacturer manufacturer;
+    private ManufacturerEntity manufacturer;
 
 }

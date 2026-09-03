@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Getter
 @Setter
-public class Manufacturer {
+public class ManufacturerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
