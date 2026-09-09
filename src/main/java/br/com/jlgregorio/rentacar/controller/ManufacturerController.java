@@ -47,7 +47,4 @@ public class ManufacturerController {
         manufacturerService.delete(id);
         return new ResponseEntity<>((Object) null, HttpStatus.NO_CONTENT);
     }
-
-
-
 }
