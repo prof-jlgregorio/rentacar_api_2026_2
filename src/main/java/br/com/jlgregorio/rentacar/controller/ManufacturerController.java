@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/manufacturers/v1")
 public class ManufacturerController {
@@ -27,5 +29,25 @@ public class ManufacturerController {
         var found = manufacturerService.findById(id);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
+
+    @GetMapping("/")
+    public ResponseEntity<List<ManufacturerEntity>> findAll(){
+        var manufacturers = manufacturerService.findAll();
+        return new ResponseEntity<>(manufacturers, HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<ManufacturerEntity> update(@RequestBody ManufacturerEntity entity){
+        var updated = manufacturerService.update(entity);
+        return new ResponseEntity<>(updated, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        manufacturerService.delete(id);
+        return new ResponseEntity<>((Object) null, HttpStatus.NO_CONTENT);
+    }
+
+
 
 }
