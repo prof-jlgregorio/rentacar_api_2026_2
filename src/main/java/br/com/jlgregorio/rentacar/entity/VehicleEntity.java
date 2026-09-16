@@ -2,6 +2,10 @@ package br.com.jlgregorio.rentacar.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "vehicles")
@@ -31,5 +35,14 @@ public class VehicleEntity {
     @ManyToOne
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private ManufacturerEntity manufacturer;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Date createAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
 
 }

@@ -1,5 +1,6 @@
 package br.com.jlgregorio.rentacar.controller;
 
+import br.com.jlgregorio.rentacar.dto.ManufacturerDto;
 import br.com.jlgregorio.rentacar.entity.ManufacturerEntity;
 import br.com.jlgregorio.rentacar.service.ManufacturerService;
 import org.springframework.http.HttpStatus;
@@ -19,26 +20,26 @@ public class ManufacturerController {
     }
 
     @PostMapping
-    public ResponseEntity<ManufacturerEntity> create(@RequestBody ManufacturerEntity entity){
-        var created = manufacturerService.create(entity);
+    public ResponseEntity<ManufacturerDto> create(@RequestBody ManufacturerDto dto){
+        var created = manufacturerService.create(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManufacturerEntity> findById(@PathVariable Long id){
+    public ResponseEntity<ManufacturerDto> findById(@PathVariable Long id){
         var found = manufacturerService.findById(id);
         return new ResponseEntity<>(found, HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<ManufacturerEntity>> findAll(){
+    public ResponseEntity<List<ManufacturerDto>> findAll(){
         var manufacturers = manufacturerService.findAll();
         return new ResponseEntity<>(manufacturers, HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<ManufacturerEntity> update(@RequestBody ManufacturerEntity entity){
-        var updated = manufacturerService.update(entity);
+    public ResponseEntity<ManufacturerDto> update(@RequestBody ManufacturerDto dto){
+        var updated = manufacturerService.update(dto);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 

@@ -6,4 +6,3 @@ public record ManufacturerDto(
         String country
 ) {
 }
-`

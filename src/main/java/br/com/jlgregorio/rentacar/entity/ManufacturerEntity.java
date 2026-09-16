@@ -2,6 +2,10 @@ package br.com.jlgregorio.rentacar.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "manufacturers")
@@ -21,5 +25,13 @@ public class ManufacturerEntity {
 
     @Column(name = "country", nullable = false, length = 30)
     private String country;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Date createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
 }
