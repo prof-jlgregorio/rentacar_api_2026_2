@@ -1,7 +1,6 @@
 package br.com.jlgregorio.rentacar.controller;
 
 import br.com.jlgregorio.rentacar.dto.ManufacturerDto;
-import br.com.jlgregorio.rentacar.entity.ManufacturerEntity;
 import br.com.jlgregorio.rentacar.service.ManufacturerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
